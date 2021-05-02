@@ -1,8 +1,8 @@
 spec:
+  name: BrawlStars
   services:
-    - name: sample-python
+    - environment_slug: python
+      name: BrawlStars
       git:
         branch: main
-        repo_clone_url: https://github.com/brianjstroh/BrawlStars/.git
-    databases:
-    - name: db
+        repo_clone_url: https://github.com/brianjstroh/BrawlStars.git
