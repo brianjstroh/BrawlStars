@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style> 
+    table {
+        font-family: Arial;
+        border-collapse: collapse;
+        border-style: hidden;
+        width: 100%;
+    }   
+    table th, td {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        text-align: center;
+        border: 1px;
+        border-style: solid;
+        border-color: #797b7d;
+    }
+    table tr {
+        background-color: #ffffff;
+    }
+    table tr:hover {
+        background-color: #ddd;
+    }
+    table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        background-color: #4c5e70;
+        color: white;
+    }
+    /* top-left border-radius */
+    table tr:first-child th:first-child,
+    table.Info tr:first-child td:first-child {
+        border-top-left-radius: 15px;
+    }
+    
+    /* top-right border-radius */
+    table tr:first-child th:last-child,
+    table.Info tr:first-child td:last-child {
+        border-top-right-radius: 15px;
+    }
+    
+    /* bottom-left border-radius */
+    table tr:last-child td:first-child {
+        border-bottom-left-radius: 15px;
+    }
+    
+    /* bottom-right border-radius */
+    table tr:last-child td:last-child {
+        border-bottom-right-radius: 15px;
+    }
+    body {
+        background-image: url("https://wallpapercave.com/wp/wp5317573.png");
+        background-color: #2075c9;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: 1500px 1500px;
+    }
+    btn {
+        color: white;
+    }
+    label, h1 {
+        color: white;
+        padding: 8px;
+    }
+    .navbar-custom {
+        background-color: #2075c9;
+    }
+    </style>
+    <title>{% block title %} {% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark navbar-custom">
+        <a class="navbar-brand" href="{{ url_for('home')}}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">About</a>
+            </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        {% block content %} {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
