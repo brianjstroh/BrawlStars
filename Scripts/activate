@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\brian\desktop\all\uwec\ds785_capstone\brawlstars\Environments\BrawlStarsApp"
+VIRTUAL_ENV="C:\Users\brian\desktop\all\uwec\ds785_capstone\BrawlStars"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
