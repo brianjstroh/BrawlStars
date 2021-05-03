@@ -1,13 +1,14 @@
-name: brawlstars
-region: sfo
-services:
-- environment_slug: python
-  git:
-    branch: main
-    repo_clone_url: https://github.com/brianjstroh/BrawlStars.git
-  http_port: 8080
-  instance_count: 1
+spec:
   name: brawlstars
-  routes:
-  - path: /brawlstars
-  run_command: python -m flask run
+  region: sfo
+  services:
+  - environment_slug: python
+    git:
+      branch: main
+      repo_clone_url: https://github.com/brianjstroh/BrawlStars.git
+    http_port: 8080
+    instance_count: 1
+    name: brawlstars
+    routes:
+    - path: /brawlstars
+    run_command: python -m flask run
