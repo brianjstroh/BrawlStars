@@ -1,27 +1,12 @@
-databases:
-- cluster_name: app-841dbe28-a6d4-4b52-8270-57fd4c242c74
-  db_name: db
-  db_user: db
-  engine: PG
-  name: db
-  num_nodes: 1
-  production: true
-  size: db-s-dev-database
-  version: "12"
-name: sample-python
+name: brawlstars
 region: sfo
 services:
 - environment_slug: python
-  envs:
-  - key: DATABASE_URL
-    scope: RUN_TIME
-    value: ${db.DATABASE_URL}
   git:
     branch: main
     repo_clone_url: https://github.com/brianjstroh/BrawlStars.git
   http_port: 8080
   instance_count: 1
-  instance_size_slug: basic-xs
   name: brawlstars
   routes:
   - path: /brawlstars
