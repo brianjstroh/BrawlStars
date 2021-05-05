@@ -43,5 +43,10 @@ def home():
             return render_template('home.html', title='Brawl Stars Recommendation', form=form)
     return render_template('home.html', title='Brawl Stars Recommendation', form=form)
 
+@app.route('/about', methods = ['GET', 'POST'])
+def about():
+    return render_template('about.html', title='About Page')
+    
+
 if __name__ == '__main__':
     app.run(debug=True)

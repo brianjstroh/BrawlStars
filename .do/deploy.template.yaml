@@ -6,6 +6,7 @@ spec:
     git:
       branch: main
       repo_clone_url: https://github.com/brianjstroh/BrawlStars.git
+      deploy_on_push: True
     http_port: 8080
     instance_count: 1
     name: brawlstars

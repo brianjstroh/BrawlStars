@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block styleoptions %}
+    th, td {
+      text-align: left;
+    }
+{% endblock %}
+{% block content %}
+    <h1>{% block title %} About Page {% endblock %}</h1>
+    <div class="content-section">
+        <div class="row">
+            <h3> Sample Player ID's:    </h3>
+        </div>
+        <div class="row">
+            <p> #2G080980, #8VUPQ2PP </p>
+        </div>
+        <div class="row">
+            <h3> All Map-Mode Combinations:</h3>
+        </div>
+        <div class="row">
+            <table style="width:80%">
+              <tr>
+                <th>Mode</th>
+                <th>Maps</th>
+              </tr>
+              <tr>
+                <td>Bounty</td>
+                <td>Canal Grande, Dry Season, Land Ahoy, Open Plaza, Quick Skip, Shooting Star, Snake Prairie</td>
+              </tr>
+              <tr>
+                <td>Brawl Ball</td>
+                <td>Backyard Bowl, Bank Shot, Boxing Day, Center Stage, Clean Shot, Encirclement, Fast Fork, Field Goal, Jumping Beans, Sneaky Fields, Sunny Soccer, Super Stadium, Triple Dribble, Winter Party</td>
+              </tr>
+              <tr>
+                <td>Duo Showdown</td>
+                <td>Acid Lakes, Cavern Churn, Clash Colosseum, Dark Passage, Double Trouble, Feast or Famine, Forsaken Falls, Island Invasion, Rockwall Brawl, Safety Center, Scorched Stone, Skull Creek, Stormy Plains, The Galaxy</td>
+              </tr>
+              <tr>
+                <td>Gem Grab</td>
+                <td>Arène en folie, Corner Case, Crystal Arcade, Deathcap Trap, Deep Diner, Double Swoosh, Flooded Dam, Hard Rock Mine, Ice Fort, Minecart Madness, Red Herring, Rustic Arcade, Snake Shop, Undermine</td>
+              </tr>
+              <tr>
+                <td>Heist</td>
+                <td>Central Traffic, G.G. Mortuary, Hot Potato, Kaboom Canyon, Safe Zone, Snaked Assault, Turnaround</td>
+              </tr>
+              <tr>
+                <td>Hot Zone</td>
+                <td>Dueling Beetles, Magnetic Field, Massive Attack, Parallel Plays, Quick Travel, Ring of Fire, Split, Triumvirate</td>
+              </tr>
+              <tr>
+                <td>Knockout</td>
+                <td>Belle's Rock, Close Call, Crimewater, Double Bluff, Ends Meet, Goldarm Gulch, Middle Ground, Snake Out, Split Difference, Zip Zap</td>
+              </tr>
+              <tr>
+                <td>Lone Star</td>
+                <td>Shore Shot</td>
+              </tr>
+              <tr>
+                <td>Siege</td>
+                <td>Bot Drop,Bot Riot,Factory Rush,Nuts & Bolts,Olive Branch,Robo Highway,Some Assembly Required</td>
+              </tr>
+              <tr>
+                <td>Solo Showdown</td>
+                <td>Acid Lakes, Cavern Churn, Clash Colosseum, Dark Passage, Double Trouble, Feast or Famine, Forsaken Falls, Island Invasion, Rockwall Brawl, Safety Center, Scorched Stone, Skull Creek, Stormy Plains, The Galaxy</td>
+              </tr>
+            </table>
+        </div>
+        <div class="row">
+            <h3>Get Recommendation:     </h3>
+        </div>
+        <div class="row">
+            <p>This button requires all inputs to be set. It returns each brawler's win rates for that map. Individual player history is accounted for.</p>
+        </div>
+        <div class="row">
+            <h3>Get All Recommendations:        </h3>
+        </div>
+        <div class="row">
+            <p>This button requires only Player ID and Trophy Level to be set. It returns all maps, modes and brawlers where the player has had statistically different experience than the population average.</p>
+        </div>
+        <div class="row">
+            <h3>Get Map Weaknesses:     </h3>
+        </div>
+        <div class="row">
+            <p>This button requires only Trophy Level to be set. It returns the best win rates available in the game. These map-mode-brawler combinations can be used to enjoy the best odds of winning.</p>
+        </div>
+    </div>
+{% endblock %}

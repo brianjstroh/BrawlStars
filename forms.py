@@ -1,15 +1,16 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 
-modes = [('gemGrab', 'Gem Grab'), 
-('brawlBall', 'Brawl Ball'), 
-('heist', 'Heist'),
-('seige', 'Seige'),
-('bounty', 'Bounty'),
-('knockout', 'Knockout'),
-('soloShowdown', 'Solo Showdown'),
+modes = [('bounty', 'Bounty'),
+('brawlBall', 'Brawl Ball'),
 ('duoShowdown', 'Duo Showdown'),
-('loneStar', 'Lone Star')]
+('gemGrab', 'Gem Grab'),  
+('heist', 'Heist'),
+('hotZone', 'Hot Zone'),
+('knockout', 'Knockout'),
+('loneStar', 'Lone Star'),
+('seige', 'Seige'),
+('soloShowdown', 'Solo Showdown')]
 trophy_levels = [('high','High (>=550)'), ('mid','Mid (>=300 & <550)'), ('low','Low (<300)')] 
 
 class UserForm(FlaskForm):
