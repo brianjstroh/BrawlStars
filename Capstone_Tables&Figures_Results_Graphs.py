@@ -10,6 +10,7 @@ import brawl_data as bd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+from statsmodels.stats.proportion import proportion_confint
 
 all_win_rates = bd.sql_get_results('dbname=BrawlStars user=postgres password=PG!3%7(', '', '', '', 0, 0, my_id = '', 
                    custom_query = "SELECT mode, map, brawler, wins, matches_played FROM population_aggs_high;")
@@ -48,3 +49,20 @@ my_recs = bd.get_all_recommendations('dbname=BrawlStars user=postgres password=P
 
 map_weaknesses = bd.get_map_weaknesses('dbname=BrawlStars user=postgres password=PG!3%7(', 'records')
 map_weaknesses.head(10)
+
+all_individual_history = bd.sql_get_results('dbname=BrawlStars user=postgres password=PG!3%7(', '', '', '', 0, 0, my_id = '', 
+                   custom_query = "SELECT * FROM individual_aggs_high UNION ALL SELECT * FROM individual_aggs_mid UNION ALL SELECT * FROM individual_aggs_low;")
+all_population_history = bd.sql_get_results('dbname=BrawlStars user=postgres password=PG!3%7(', '', '', '', 0, 0, my_id = '', 
+                   custom_query = "SELECT * FROM population_aggs_high UNION ALL SELECT * FROM population_aggs_mid UNION ALL SELECT * FROM population_aggs_low;")
+
+#Calculate win rate confidence intervals
+all_individual_history['win_rate'] = all_individual_history['wins'] / all_individual_history['matches_played']
+all_individual_history['ci.lower'],all_individual_history['ci.upper'] = zip(*all_individual_history.apply(lambda row : proportion_confint(count = row['wins'], nobs = row['matches_played'], alpha = .1, method = 'agresti_coull'), axis = 1))
+
+all_population_history['win_rate'] = all_population_history['wins'] / all_population_history['matches_played']
+all_individual_history = all_population_history.merge(all_individual_history, how = 'left', left_on = ['mode', 'map', 'brawler'], right_on = ['mode', 'map', 'brawler'])
+
+#Compare population to individual history and inform recommendations
+better = (all_individual_history['win_rate_x'] < all_individual_history['ci.lower']) & (all_individual_history['matches_played_y'] >= 5)
+worse = (all_individual_history['win_rate_x'] > all_individual_history['ci.upper']) & (all_individual_history['matches_played_y'] >= 5)
+sum(better) + sum(worse)

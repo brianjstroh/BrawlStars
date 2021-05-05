@@ -11,7 +11,6 @@ import time
 import pandas as pd
 import numpy as np
 import pickle
-from statsmodels.stats.proportion import proportion_confint
 import psycopg2
 from sqlalchemy import create_engine
 
