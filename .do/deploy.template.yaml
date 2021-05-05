@@ -3,6 +3,9 @@ spec:
   region: sfo
   services:
   - environment_slug: python
+    git:
+      branch: main
+      repo_clone_url: https://github.com/brianjstroh/BrawlStars.git
     github:
       repo: brianjstroh/BrawlStars
       branch: main
