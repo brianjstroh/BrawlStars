@@ -4,12 +4,9 @@ Created on Sun Apr 18 21:15:27 2021
 
 @author: brian
 """
-import requests
-import json
+
 import os
 import time
-import pandas as pd
-import numpy as np
 import pickle
 
 os.chdir('C:/Users/brian/Desktop/All/UWEC/DS785_Capstone/Project')

@@ -19,19 +19,19 @@ def home():
     if request.method == 'POST':
         if form.get_recommendation.data:
             try:
-                df = bd.get_recommendation('postgresql://db:hfjusa20w4q40ac7@app-841dbe28-a6d4-4b52-8270-57fd4c242c74-do-user-9112116-0.b.db.ondigitalocean.com:25060/db?sslmode=require',  form.player_id.data, form.game_mode.data, form.map.data, form.trophies.data)
+                df = bd.get_recommendation('postgresql://doadmin:el2of9p8wpgfe99t@brawl-stars-database-do-user-9112116-0.b.db.ondigitalocean.com:25060/db?sslmode=require',  form.player_id.data, form.game_mode.data, form.map.data, form.trophies.data)
                 return render_template('home.html', title='Brawl Stars Recommendation', form=form, data = df.to_html(classes='data', header="true", index=False))
             except:
                 return render_template('home.html', title='Brawl Stars Recommendation', form=form)
         elif form.get_all_recommendations.data:
             try:
-                df = bd.get_all_recommendations('postgresql://db:hfjusa20w4q40ac7@app-841dbe28-a6d4-4b52-8270-57fd4c242c74-do-user-9112116-0.b.db.ondigitalocean.com:25060/db?sslmode=require',  form.player_id.data, form.trophies.data)
+                df = bd.get_all_recommendations('postgresql://doadmin:el2of9p8wpgfe99t@brawl-stars-database-do-user-9112116-0.b.db.ondigitalocean.com:25060/db?sslmode=require',  form.player_id.data, form.trophies.data)
                 return render_template('home.html', title='Brawl Stars Recommendation', form=form, data = df.to_html(classes='data', header="true", index=False))
             except:
                 return render_template('home.html', title='Brawl Stars Recommendation', form=form)
         elif form.get_map_weaknesses.data:
             try:
-                df = bd.get_map_weaknesses('postgresql://db:hfjusa20w4q40ac7@app-841dbe28-a6d4-4b52-8270-57fd4c242c74-do-user-9112116-0.b.db.ondigitalocean.com:25060/db?sslmode=require', form.trophies.data)
+                df = bd.get_map_weaknesses('postgresql://doadmin:el2of9p8wpgfe99t@brawl-stars-database-do-user-9112116-0.b.db.ondigitalocean.com:25060/db?sslmode=require', form.trophies.data)
                 return render_template('home.html', title='Brawl Stars Recommendation', form=form, data = df.to_html(classes='data', header="true", index=False))
             except:
                 return render_template('home.html', title='Brawl Stars Recommendation', form=form)
